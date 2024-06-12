@@ -352,6 +352,7 @@ parts:
     source: https://github.com/docker/compose.git
     # https://github.com/docker/docker-ce-packaging/blob/master/common.mk
     source-tag: v2.27.1
+    #? old 2.20.3
     source-depth: 1
     override-build: |
       make build

@@ -38,7 +38,8 @@ confinement: strict
 # Using passthrough until LP#2019931 is fixed
 passthrough:
   assumes:
-    - snapd2.59.1
+    # - snapd2.59.1
+    - snapd2.63
 
 layout:
   /etc/docker:

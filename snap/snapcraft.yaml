@@ -1,6 +1,6 @@
 name: docker
 #title: Docker
-version: '24.0.5'
+version: "24.0.5"
 summary: Docker container runtime
 description: |
   Build and run container images with Docker.
@@ -52,7 +52,7 @@ environment:
   GIT_EXEC_PATH: "$SNAP/usr/lib/git-core"
   GIT_TEMPLATE_DIR: "$SNAP/usr/share/git-core/templates"
   # For nvidia support #
-  LD_LIBRARY_PATH:    $SNAP/graphics/lib/${CRAFT_ARCH_TRIPLET}:${SNAP}/lib/:${SNAP}/lib/${CRAFT_ARCH_TRIPLET}:${SNAP}/usr/lib/:${SNAP}/usr/lib/${CRAFT_ARCH_TRIPLET}
+  LD_LIBRARY_PATH: $SNAP/graphics/lib/${CRAFT_ARCH_TRIPLET}:${SNAP}/lib/:${SNAP}/lib/${CRAFT_ARCH_TRIPLET}:${SNAP}/usr/lib/:${SNAP}/usr/lib/${CRAFT_ARCH_TRIPLET}
   LIBGL_DRIVERS_PATH: $SNAP/graphics/lib/${CRAFT_ARCH_TRIPLET}/dri
   LIBVA_DRIVERS_PATH: $SNAP/graphics/lib/${CRAFT_ARCH_TRIPLET}/dri
   # nvidia-container-runtime can only set alternative config directory via XDG_CONFIG_HOME #
@@ -192,7 +192,7 @@ parts:
       # install docker-proxy previously provided by libnetwork part
       install -T bundles/dynbinary-daemon/docker-proxy "$CRAFT_PART_INSTALL/bin/docker-proxy"
     # https://github.com/moby/moby/blob/v24.0.5/Dockerfile.simple (Docker-supported Go version for Engine)
-    build-snaps: &go ['go/1.20/stable']
+    build-snaps: &go ["go/1.20/stable"]
     # we get weird behavior if we mix/match Go versions throughout this one snapcraft.yml, so we use a YAML reference here to ensure we're always consistent throughout
     after: [wrapper-scripts]
     build-packages:
@@ -299,7 +299,7 @@ parts:
     source-tag: v0.19.0
     source-depth: 1
     organize:
-      'usr/local/bin/tini-static': bin/docker-init
+      "usr/local/bin/tini-static": bin/docker-init
     build-packages:
       - build-essential
     prime:
@@ -351,7 +351,7 @@ parts:
     plugin: make
     source: https://github.com/docker/compose.git
     # https://github.com/docker/docker-ce-packaging/blob/master/common.mk
-    source-tag: v2.20.3
+    source-tag: v2.27.1
     source-depth: 1
     override-build: |
       make build
@@ -366,5 +366,4 @@ lint:
     - library:
         - usr/lib/**/libltdl.so.*
         - usr/lib/**/libnvidia-container-go.so.*
-
 # vim:set et ts=2 sw=2:
